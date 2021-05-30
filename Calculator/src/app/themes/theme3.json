@@ -1,0 +1,15 @@
+{
+    "mainBackground": "hsl(268, 75%, 9%)",
+    "toggleBackground": " hsl(268, 71%, 12%)",
+    "keypadBackground": " hsl(268, 71%, 12%)",
+    "screenBackground": "hsl(268, 71%, 12%)",
+    "toggle":"hsl(176, 100%, 44%)",
+    "equalsKeyBackground": "hsl(176, 100%, 44%)",
+    "equalsKeyShadow": " hsl(177, 92%, 70%)",
+    "numericKeysBackground": "hsl(268, 47%, 21%)",
+    "numericKeysShadow": "hsl(290, 70%, 36%)",
+    "delResetKeyBackground": "hsl(281, 89%, 26%)",
+    "delResetKeyShadow": "hsl(285, 91%, 52%)",
+    "textPrimary": "hsl(52, 100%, 62%)",
+    "textSecondary": "hsl(198, 20%, 13%)"
+  }

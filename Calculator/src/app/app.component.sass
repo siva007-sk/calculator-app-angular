@@ -1,0 +1,128 @@
+@use "../assets/theme1"
+
+
+.container
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+
+.calculator
+    max-width: 350px
+
+.header
+    display: flex
+    justify-content: space-between
+    width: 100%
+    margin-bottom: 1rem
+
+.heading
+    font-weight: 700
+.theme-switch
+    display: flex
+    justify-content: space-around
+    align-items: center
+    width: 35%
+
+.theme-title
+    font-size: 0.7rem
+    font-weight: 700
+
+.themeRadio
+    background-color: theme1.$toggleKeypagBackground
+    border: 1px solid theme1.$toggleKeypagBackground
+    border-radius: 1rem
+    display: flex
+    height: 1.7rem
+    align-items: center
+    justify-content: space-around
+    width: 50%
+    padding: 0px 40px 0px 32px
+
+input[type='radio']:after
+    width: 15px
+    height: 15px
+    border-radius: 15px
+    top: -2px
+    left: -1px
+    position: relative
+    background-color: theme1.$toggleKeypagBackground
+    border: 2px solid theme1.$toggleKeypagBackground
+    content: ''
+    display: inline-block
+    visibility: visible
+    transition: 0.5s ease-in
+
+input[type='radio']:checked:after
+    width: 15px
+    height: 15px
+    border-radius: 15px
+    top: -2px
+    left: -1px
+    position: relative
+    background-color: theme1.$keyBackgroundRed
+    border: 2px solid theme1.$toggleKeypagBackground
+    content: ''
+    display: inline-block
+    visibility: visible
+    
+.radio
+    color: theme1.$textWhite
+    font-size: 0.7rem
+    font-weight: 700
+    z-index: 3
+    transform: translate(12px, 3px)
+
+.display
+    height: 4rem
+    border: 1px solid 
+    border-radius: 5px
+    margin-bottom: 1rem
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    
+
+.display-input
+    height: 100%
+    width: 100%
+    font-weight: 700
+    font-size: 2rem
+    text-align: end
+    padding: 1rem
+
+.keypad
+    border-radius: 5px
+    padding: 0.5rem
+
+.buttons
+    display: flex
+    width: 100%
+    justify-content: space-around
+
+button
+    font-size: 1.5rem
+    height: 3rem
+    width: 100%
+    margin: 5px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 700
+    border-radius: 10px
+
+button:active
+    transform: translateY(1px)
+
+.blueKey
+    font-size: 1.2rem
+
+.action
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+.redKey
+    font-size: 1.2rem
+
+            

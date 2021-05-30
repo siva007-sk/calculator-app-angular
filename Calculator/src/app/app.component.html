@@ -1,0 +1,115 @@
+<section
+  class="container"
+  [style.backgroundColor]="themeStyle.mainBackground"
+>
+  <div class="calculator">
+    <div class="header">
+      <h3
+        class="heading"
+        [ngStyle]="{ color: themeStyle.textSecondary }"
+      >
+        Calc
+      </h3>
+      <span class="theme-switch">
+        <label
+          for="theme"
+          class="theme-title"
+          [ngStyle]="{ color: themeStyle.textSecondary }"
+          >THEME</label
+        >
+        <span class="themeRadio" id="theme">
+          <label for="1" class="radio">1</label>
+          <input type="radio" name="1" id="1" [checked]="selectedTheme.theme1" value="1" (click)="changeTheme($event)"/>
+          <label for="2" class="radio">2</label>
+          <input type="radio" name="2" id="2" [checked]="selectedTheme.theme2" value="2" (click)="changeTheme($event)"/>
+          <label for="3" class="radio">3</label>
+          <input type="radio" name="3" id="3" [checked]="selectedTheme.theme3" value="3" (click)="changeTheme($event)"/>
+        </span>
+      </span>
+    </div>
+    <div class="display">
+      <input
+        type="text"
+        name="display"
+        id="display"
+        [(ngModel)]="resultDisplay"
+        [ngStyle]="{
+          'background-color': themeStyle.screenBackground,
+          border: themeStyle.screenBackground,
+          color: themeStyle.textSecondary
+        }"
+        disabled
+        class="display-input"
+      />
+    </div>
+    <div
+      class="keypad"
+      [ngStyle]="{
+        'background-color': themeStyle.screenBackground,
+        border: themeStyle.screenBackground
+      }"
+    >
+      <ng-container *ngFor="let item of buttonList">
+        <div class="buttons">
+          <ng-container *ngFor="let button of item">
+            <ng-container *ngIf="button == 'DEL'; else regularButtons">
+              <button
+                class="blueKey"
+                (click)="takeAction($event)"
+                [id]="button"
+                [ngStyle]="{
+                  'background-color': themeStyle.delResetKeyBackground,
+                  color: themeStyle.textSecondary,
+                  border: themeStyle.delResetKeyBackground,
+                  'box-shadow': '2px 2px' + themeStyle.delResetKeyShadow
+                }"
+              >
+                {{ button }}
+              </button>
+            </ng-container>
+            <ng-template #regularButtons>
+              <button
+                [id]="button"
+                (click)="takeAction($event)"
+                [ngStyle]="{
+                  'background-color': themeStyle.numericKeysBackground,
+                  color: themeStyle.textPrimary,
+                  border: themeStyle.numericKeysBackground,
+                  'box-shadow': '2px 2px' + themeStyle.numericKeysShadow
+                }"
+              >
+                {{ button }}
+              </button>
+            </ng-template>
+          </ng-container>
+        </div>
+      </ng-container>
+      <div class="action">
+        <button
+          class="blueKey"
+          [ngStyle]="{
+            'background-color': themeStyle.delResetKeyBackground,
+            color: themeStyle.textSecondary,
+            border: themeStyle.delResetKeyBackground,
+            'box-shadow': '2px 2px' + themeStyle.delResetKeyShadow
+          }"
+          (click)="reset()"
+        >
+          Reset
+        </button>
+        <button
+          class="redKey"
+          [ngStyle]="{
+            'background-color': themeStyle.equalsKeyBackground,
+            color: themeStyle.textSecondary,
+            border: themeStyle.equalsKeyBackground,
+            'box-shadow': '2px 2px' + themeStyle.equalsKeyShadow
+          }"
+          (click)="getResult()"
+        >
+          =
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
