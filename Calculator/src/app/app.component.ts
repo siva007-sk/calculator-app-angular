@@ -28,15 +28,13 @@ export class AppComponent {
   };
 
   takeAction(event: any) {
+    const key = event.target.id;
     if (this.resultsFlag) {
       this.resultDisplay = '';
       this.resultsFlag = false;
       this.operator = '';
     }
-    if (this.resultDisplay.length == 12) {
-      return;
-    }
-    const key = event.target.id;
+
     if (key == '+' || key == '-' || key == 'x' || key == '/') {
       if (this.operator == '') {
         this.operator = key;
@@ -54,6 +52,9 @@ export class AppComponent {
         this.resultDisplay.length - 1
       );
     } else {
+      if (this.resultDisplay.length == 12) {
+        return;
+      }
       this.resultDisplay += key;
     }
   }
