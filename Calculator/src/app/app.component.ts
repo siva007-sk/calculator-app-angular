@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Decimal } from 'decimal.js';
 import * as Theme1 from './themes/theme1.json';
 import * as Theme2 from './themes/theme2.json';
@@ -88,7 +88,7 @@ export class AppComponent {
     return 0;
   }
 
-  changeTheme(event:any) {
+  changeTheme(event: any) {
     let radio = event.target.value;
     switch (radio) {
       case '1':

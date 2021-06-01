@@ -1,29 +1,83 @@
-<section
-  class="container"
-  [style.backgroundColor]="themeStyle.mainBackground"
->
+<section class="container" [style.backgroundColor]="themeStyle.mainBackground">
   <div class="calculator">
+    <div class="theme-label">
+      <ul>
+        <li [ngStyle]="{ color: themeStyle.colorHeadings }">1</li>
+        <li [ngStyle]="{ color: themeStyle.colorHeadings }">2</li>
+        <li [ngStyle]="{ color: themeStyle.colorHeadings }">3</li>
+      </ul>
+    </div>
     <div class="header">
-      <h3
-        class="heading"
-        [ngStyle]="{ color: themeStyle.textSecondary }"
-      >
+      <h3 class="heading" [ngStyle]="{ color: themeStyle.colorHeadings }">
         Calc
       </h3>
       <span class="theme-switch">
-        <label
+        <p
           for="theme"
           class="theme-title"
-          [ngStyle]="{ color: themeStyle.textSecondary }"
-          >THEME</label
+          [ngStyle]="{ color: themeStyle.colorHeadings, padding: '5px' }"
         >
-        <span class="themeRadio" id="theme">
-          <label for="1" class="radio">1</label>
-          <input type="radio" name="1" id="1" [checked]="selectedTheme.theme1" value="1" (click)="changeTheme($event)"/>
-          <label for="2" class="radio">2</label>
-          <input type="radio" name="2" id="2" [checked]="selectedTheme.theme2" value="2" (click)="changeTheme($event)"/>
-          <label for="3" class="radio">3</label>
-          <input type="radio" name="3" id="3" [checked]="selectedTheme.theme3" value="3" (click)="changeTheme($event)"/>
+          THEME
+        </p>
+        <span
+          class="themeRadio"
+          id="theme"
+          [ngStyle]="{
+            'background-color': themeStyle.keypadBackground,
+            border: themeStyle.keypadBackground
+          }"
+        >
+          <span class="btn-1">
+            <input
+              type="radio"
+              name="1"
+              id="1"
+              [checked]="selectedTheme.theme1"
+              value="1"
+              (click)="changeTheme($event)"
+            />
+            <span
+              [ngClass]="{
+                'radio-btn1': selectedTheme.theme1,
+                'radio-btn2': selectedTheme.theme2,
+                'radio-btn3': selectedTheme.theme3
+              }"
+            ></span>
+          </span>
+          <span class="btn-2">
+            <input
+              type="radio"
+              name="2"
+              id="2"
+              [checked]="selectedTheme.theme2"
+              value="2"
+              (click)="changeTheme($event)"
+            />
+            <span
+              [ngClass]="{
+                'radio-btn1': selectedTheme.theme1,
+                'radio-btn2': selectedTheme.theme2,
+                'radio-btn3': selectedTheme.theme3
+              }"
+            ></span>
+          </span>
+          <span class="btn-3">
+            <input
+              type="radio"
+              name="3"
+              id="3"
+              [checked]="selectedTheme.theme3"
+              value="3"
+              (click)="changeTheme($event)"
+            />
+            <span
+              [ngClass]="{
+                'radio-btn1': selectedTheme.theme1,
+                'radio-btn2': selectedTheme.theme2,
+                'radio-btn3': selectedTheme.theme3
+              }"
+            ></span>
+          </span>
         </span>
       </span>
     </div>
@@ -36,7 +90,7 @@
         [ngStyle]="{
           'background-color': themeStyle.screenBackground,
           border: themeStyle.screenBackground,
-          color: themeStyle.textSecondary
+          color: themeStyle.colorHeadings
         }"
         disabled
         class="display-input"
@@ -45,8 +99,8 @@
     <div
       class="keypad"
       [ngStyle]="{
-        'background-color': themeStyle.screenBackground,
-        border: themeStyle.screenBackground
+        'background-color': themeStyle.keypadBackground,
+        border: themeStyle.keypadBackground
       }"
     >
       <ng-container *ngFor="let item of buttonList">
@@ -59,7 +113,7 @@
                 [id]="button"
                 [ngStyle]="{
                   'background-color': themeStyle.delResetKeyBackground,
-                  color: themeStyle.textSecondary,
+                  color: themeStyle.colorDelReset,
                   border: themeStyle.delResetKeyBackground,
                   'box-shadow': '2px 2px' + themeStyle.delResetKeyShadow
                 }"
@@ -89,7 +143,7 @@
           class="blueKey"
           [ngStyle]="{
             'background-color': themeStyle.delResetKeyBackground,
-            color: themeStyle.textSecondary,
+            color: themeStyle.colorDelReset,
             border: themeStyle.delResetKeyBackground,
             'box-shadow': '2px 2px' + themeStyle.delResetKeyShadow
           }"
@@ -101,7 +155,7 @@
           class="redKey"
           [ngStyle]="{
             'background-color': themeStyle.equalsKeyBackground,
-            color: themeStyle.textSecondary,
+            color: themeStyle.colorEqual,
             border: themeStyle.equalsKeyBackground,
             'box-shadow': '2px 2px' + themeStyle.equalsKeyShadow
           }"

@@ -1,6 +1,3 @@
-@use "../assets/theme1"
-
-
 .container
     height: 100vh
     display: flex
@@ -22,60 +19,95 @@
     display: flex
     justify-content: space-around
     align-items: center
-    width: 35%
+    width: 40%
 
 .theme-title
     font-size: 0.7rem
     font-weight: 700
+.theme-label
+    display: flex
+    justify-content: flex-end
+    align-items:  center
+    width: 100%
+    ul
+        display: flex
+        justify-content: space-around
+        align-items: center
+        width: 25%
 
+        li
+            list-style: none
+            font-size: 0.8em
+            font-weight: 700
 .themeRadio
-    background-color: theme1.$toggleKeypagBackground
-    border: 1px solid theme1.$toggleKeypagBackground
     border-radius: 1rem
     display: flex
     height: 1.7rem
     align-items: center
     justify-content: space-around
-    width: 50%
+    width: 100%
     padding: 0px 40px 0px 32px
+    .btn-1
+        input
+            position: absolute
+            opacity: 0
+            height: 20px
+            width: 20px
+            cursor: pointer
+            transform: translate(-30px, -10px)
+            z-index: 3
+        .radio-btn1
+            position: absolute
+            height: 15px
+            width: 15px
+            border-radius: 50%
+            transform: translate(-28px,-7px)
 
-input[type='radio']:after
-    width: 15px
-    height: 15px
-    border-radius: 15px
-    top: -2px
-    left: -1px
-    position: relative
-    background-color: theme1.$toggleKeypagBackground
-    border: 2px solid theme1.$toggleKeypagBackground
-    content: ''
-    display: inline-block
-    visibility: visible
-    transition: 0.5s ease-in
+        input:checked ~ .radio-btn1
+            background-color: hsl(6, 63%, 50%)
+    .btn-2
+        input
+            position: absolute
+            opacity: 0
+            height: 20px
+            width: 20px
+            cursor: pointer
+            transform: translate(-7px, -10px)
+            z-index: 3
+        .radio-btn2
+            position: absolute
+            height: 15px
+            width: 15px
+            border-radius: 50%
+            transform: translate(-4px,-7px)
+        input:checked ~ .radio-btn2
+            background-color: hsl(25, 98%, 40%)
+    .btn-3
+        input
+            position: absolute
+            opacity: 0
+            height: 20px
+            width: 20px
+            cursor: pointer
+            transform: translate(16px, -10px)
+            z-index: 3
+        .radio-btn3
+            position: absolute
+            height: 15px
+            width: 15px
+            border-radius: 50%
+            transform: translate(19px,-7px)
+        input:checked ~ .radio-btn3
+            background-color: hsl(176, 100%, 44%)
 
-input[type='radio']:checked:after
-    width: 15px
-    height: 15px
-    border-radius: 15px
-    top: -2px
-    left: -1px
-    position: relative
-    background-color: theme1.$keyBackgroundRed
-    border: 2px solid theme1.$toggleKeypagBackground
-    content: ''
-    display: inline-block
-    visibility: visible
     
 .radio
-    color: theme1.$textWhite
     font-size: 0.7rem
     font-weight: 700
     z-index: 3
-    transform: translate(12px, 3px)
-
+    transform: translate(12px, 3px) 
 .display
     height: 4rem
-    border: 1px solid 
     border-radius: 5px
     margin-bottom: 1rem
     display: flex
